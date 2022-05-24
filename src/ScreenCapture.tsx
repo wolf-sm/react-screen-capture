@@ -176,7 +176,7 @@ export default class ScreenCapture extends Component<Props, State> {
       cropWidth,
       cropHeigth,
     } = this.state;
-    const body = document.querySelector('body');
+    const body = document.querySelector('#captureDiv') as HTMLCanvasElement;
 
     if (body) {
       html2canvas(body).then(canvas => {
@@ -243,6 +243,7 @@ export default class ScreenCapture extends Component<Props, State> {
         onMouseMove={this.handleMouseMove}
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
+        id="#captureDiv"
       >
         {this.renderChild()}
         <div
